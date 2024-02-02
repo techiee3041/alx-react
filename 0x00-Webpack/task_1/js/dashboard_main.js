@@ -10,11 +10,13 @@ $(() => {
 });
 
 let count = 0;
-const updateCounter = _.debounce(() => {
+const updateCounter = () => {
     $('button').on('click', () => {
         count++;
         $('#count').text(`${count} clicks on the button`);
     })
-}, 300);
+}
 
-updateCounter();
+const debouncedUpdateCounter = _.debounce(updateCounter, 300);
+debouncedUpdateCounter(); // Invoke the debounced function
+
