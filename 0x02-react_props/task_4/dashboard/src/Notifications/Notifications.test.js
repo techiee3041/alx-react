@@ -30,5 +30,20 @@ describe("Notification component tests", () => {
   it('check that the menu item is being displayed when displayDrawer is false', () => {
     const notification = shallow(<Notifications displayDrawer={false} />);
     expect(notification.contains(<div className="menuItem">Your notifications</div>)).toBe(true);
-  })
+  });
+
+  it('check that the div.Notifications is not being displayed when displayDrawer is false', () => {
+    const notification = shallow(<Notifications displayDrawer={false} />);
+    expect(notification.contains(<div className="Notifications" />)).toBe(false);
+  });
+
+  it('check that the menu item is being displayed when displayDrawer is true', () => {
+    const notification = shallow(<Notifications displayDrawer={true} />);
+    expect(notification.contains(<div className="menuItem">Your notifications</div>)).toBe(true);
+  });
+  
+  it('check that the div.Notifications is being displayed when displayDrawer is true', () => {
+    const notification = shallow(<Notifications displayDrawer={true} />);
+    expect(notification.contains(<div className="Notifications" />)).toBe(true);
+  });
 });
